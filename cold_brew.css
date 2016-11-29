@@ -1,0 +1,79 @@
+/* @import url('http://example.com/example_style.css'); */
+
+/***********************************************/
+/* CSS @imports must be at the top of the file */
+/* Add them above this section                 */
+/***********************************************/
+
+/****************************************/
+/* HubSpot Style Boilerplate            */
+/****************************************/
+
+/* These includes are optional, but helpful. */
+{% include "hubspot/styles/responsive/modules.css" %}
+{% include "hubspot/styles/patches/recommended.css" %}
+
+
+/*****************************************/
+/* Start your style declarations here    */
+/*****************************************/
+
+@media screen and (min-width: 0px) and (max-width: 736px) {
+  .coldbrew-info { padding-top:800px; }  /* show it on small screens */
+  
+  body {
+    background: url('http://cdn2.hubspot.net/hubfs/1966653/57-coffee-beans-1920x1200-photography-wallpaper.jpg') center center;
+    background-size: cover;
+    background-repeat: repeat;
+  }
+  
+}
+
+@media screen and (min-width: 437px) {
+  .coldbrew-info { padding-top: 40px; }   /* hide it elsewhere */
+  
+  body {
+    background: url('http://cdn2.hubspot.net/hubfs/1966653/iced-coffee.jpg') center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+  
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+
+.coldbrew-info {
+    display: block;
+    text-align: center;
+    width: 960px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h1, h2, p {
+    color: white;
+    font-family: arial;
+    text-shadow: -1px 0 black, 0 2px black, 1px 0 black, 0 -1px black;
+}
+
+h2 {
+    font-size: 45px;
+}
+
+button {
+    background-color: black;
+    border: 1px solid white;
+    color: white;
+    padding: 1.5% 2.5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 12px;
+    opacity: .7;
+}

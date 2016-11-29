@@ -1,0 +1,128 @@
+
+<!doctype html><!-- start coded_template: id:4547997861 path:generated_layouts/4547997856.html --><!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" > <![endif]--><!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en" >        <![endif]--><!--[if IE 8]>    <html class="no-js lt-ie9" lang="en" >               <![endif]--><!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]--><head>
+    
+    <title>Does 2 Can have cold brew?</title>
+    
+
+    <script src="https://static.hsstatic.net/jquery-libs/static-1.1/jquery/jquery-1.7.1.js"></script>
+    <script type="text/javascript">hsjQuery = window['jQuery']</script>
+    <link href="https://static.hsstatic.net/content_shared_assets/static-1.4036/css/public_common.css" rel="stylesheet">
+    
+
+
+<script>var hsVars = { app_hs_base_url: 'https://app.hubspot.com' };</script>
+
+
+<link rel="stylesheet" href="cold_brew.css" type="text/css">
+
+    <!-- The style tag has been deprecated. Attached stylesheets are included in the required_head_tags page variable. -->
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    
+
+</head>
+<body class=" hs-content-id-4595503097 hs-site-page page " style="">
+    <div class="header-container-wrapper">
+    <div class="header-container container-fluid">
+
+
+    </div><!--end header -->
+</div><!--end header wrapper -->
+
+<div class="body-container-wrapper">
+    <div class="body-container container-fluid">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-cell coldbrew-info" style="" data-widget-type="cell" data-x="0" data-w="12">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-2 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_html " style="" data-widget-type="raw_html" data-x="0" data-w="12">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_14580658785835566" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html">
+<h1 id="name"></h1>
+<h2 id="coldBrewStatus">Loading...</h2>
+<p>Last updated at:</p>
+<p style="font-size:14px" id="lastUpdated"></p>
+<p style="font-size:12px"> update status here</p>
+<button style="display: none;" id="coldBrewBack">yes caffeine!</button>
+<button style="display: none;" id="coldBrewGone">Tapped :(</button>
+</span>
+</div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+    </div><!--end body -->
+</div><!--end body wrapper -->
+
+<div class="footer-container-wrapper">
+    <div class="footer-container container-fluid">
+
+<div class="row-fluid-wrapper row-depth-1 row-number-1 ">
+<div class="row-fluid ">
+<div class="span12 widget-span widget-type-raw_html " style="" data-widget-type="raw_html" data-x="0" data-w="12">
+<div class="cell-wrapper layout-widget-wrapper">
+<span id="hs_cos_wrapper_module_14580652301251661" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_raw_html" style="" data-hs-cos-general-type="widget" data-hs-cos-type="raw_html"></span>
+</div><!--end layout-widget-wrapper -->
+</div><!--end widget-span -->
+</div><!--end row-->
+</div><!--end row-wrapper -->
+
+    </div><!--end footer -->
+</div><!--end footer wrapper -->
+
+    
+<script type="text/javascript" src="https://static.hsstatic.net/content_shared_assets/static-1.4036/js/public_common.js"></script>
+
+
+
+<script>
+    
+    $(function(){
+
+  //var coldBrewData = 'https://2cancoldbrew.firebaseio.com/hasColdBrew';
+  var coldBrewData = 'https://2cancoffee.firebaseio.com/hasColdBrew';
+  var coldBrewStatus = new Firebase(coldBrewData);
+  var options = { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric', };
+
+  coldBrewStatus.once('value', function(snapshot){
+    var dbInfo = snapshot.val();
+    if (dbInfo.status === 'YES') {
+      $('#coldBrewGone').show();
+      $('#coldBrewBack').show();
+    } else {
+      $('#coldBrewGone').show();
+      $('#coldBrewBack').show();
+    }
+    $('#coldBrewStatus').text(dbInfo.status);
+    $('#lastUpdated').text(dbInfo.date)
+    $('#name').text(dbInfo.name)
+  });
+  
+  var setColdBrewStatus = function(firebaseRef, status) {
+    firebaseRef.update({status: status, date: new Date().toLocaleString('en-US', options)});
+  };
+
+  $('#coldBrewBack').click(function() {
+    setColdBrewStatus(coldBrewStatus, 'YES');
+    location.reload();
+  });
+
+  $('#coldBrewGone').click(function() {
+    setColdBrewStatus(coldBrewStatus, 'NO');
+    location.reload();
+  });
+  
+  
+  
+});
+    
+</script>
+
+    
+</body></html>
